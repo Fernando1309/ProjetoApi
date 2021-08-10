@@ -1,0 +1,11 @@
+criação de migration =>
+  yarn typeorm migration:create -n CreateTableUsuario
+  
+rodando migration
+  yarn typeorm migration:run
+
+  
+ciando projeto react com typescript
+  yarn create react-app frontend --template=typescript
+
+
