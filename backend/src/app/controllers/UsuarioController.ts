@@ -3,16 +3,17 @@ import { getRepository } from 'typeorm';
 import { Usuario } from '../model/Usuario';
 
 class UsuarioController {
-  
+  async login(req: Request, res: Response) {
+    return res.send({userId: req.userId});
+  }
 
   async FindAll(req: Request, res: Response) {
-   
+
     const repository = getRepository(Usuario);
     const usuario = await repository.find();
     return res.send(usuario);
   };
 
-  /******************************************************************************/
   async Create(req: Request, res: Response) {
     const repository = getRepository(Usuario);
     const { nome, email, senha } = req.body;
@@ -40,7 +41,6 @@ class UsuarioController {
 
     return res.send(usuario);
   }
-  /******************************************************************************/
 
 }
 export default new UsuarioController();
