@@ -8,9 +8,8 @@ class UsuarioController {
   }
 
   async FindAll(req: Request, res: Response) {
-
     const repository = getRepository(Usuario);
-    const usuario = await repository.find();
+    const usuario = await repository.find({ select: ["id" ,"nome", "email"], where:{nome: req.params.nome} });
     return res.send(usuario);
   };
 
